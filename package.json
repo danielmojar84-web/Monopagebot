@@ -1,15 +1,16 @@
 {
   "name": "facebook-page-bot",
   "version": "1.0.0",
-  "description": "Facebook pagebot with Gemini AI and economy system",
+  "description": "Facebook Page bot with Gemini AI, economy system, and admin commands.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
+    "@google/genai": "^0.3.0",
     "axios": "^1.6.8",
     "express": "^4.19.2",
-    "fs-extra": "^11.2.0",
-    "google-generative-ai": "^0.5.0"
+    "fs-extra": "^11.2.0"
   }
 }
