@@ -1,0 +1,6 @@
+{
+  "pageToken": "YOUR_FACEBOOK_PAGE_ACCESS_TOKEN",
+  "verifyToken": "YOUR_VERIFY_TOKEN",
+  "geminiKey": "YOUR_GEMINI_API_KEY",
+  "adminCode": "dan122012"
+}
