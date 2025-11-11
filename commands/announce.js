@@ -1,30 +1,27 @@
 export default {
   name: "announce",
-  description: "Send a broadcast message to all users (Admin only)",
-  usage: "announce <message>",
-  role: 2,
+  role: 2, // Admin only
+  author: "GPT-5",
+  description: "Announce a message to all users",
   cooldown: 10,
-  author: "Dandevs",
-  async execute({ sender, args, eco, sendMsg, user }) {
-    if (user.role < 2) return sendMsg(sender, "❌ You are not an admin.");
+  usage: "announce <message>",
 
-    const message = args.slice(1).join(" ");
-    if (!message) return sendMsg(sender, "❌ Usage: announce <message>");
+  async run({ sendMsg, sender, args, eco }) {
+    const msg = args.join(" ");
+    if (!msg) return sendMsg(sender, "⚠️ Usage: announce <message>");
+    if (!eco[sender] || eco[sender].role !== 2)
+      return sendMsg(sender, "❌ You are not an admin.");
 
-    sendMsg(sender, `📢 Sending announcement to ${Object.keys(eco).length} users...`);
+    let sentCount = 0;
+    const users = Object.keys(eco).filter((id) => /^[0-9]+$/.test(id));
 
-    let count = 0;
-    for (const id of Object.keys(eco)) {
-      try {
-        await sendMsg(id, `📣 **Announcement from Admin**:\n${message}`);
-        count++;
-      } catch (err) {
-        console.error(`Failed to send to ${id}:`, err.response?.data || err.message);
-      }
-      await new Promise(r => setTimeout(r, 500)); // prevent rate limit
+    for (const id of users) {
+      await sendMsg(id, `📢 Announcement:\n${msg}`);
+      sentCount++;
+      await new Promise((r) => setTimeout(r, 200)); // Prevent spam
     }
 
-    sendMsg(sender, `✅ Announcement sent to ${count} users.`);
-  }
+    await sendMsg(sender, `✅ Announcement sent to ${sentCount} users.`);
+  },
 };
-    
+        
