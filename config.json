@@ -1,6 +1,6 @@
 {
-  "pageToken": "YOUR_FACEBOOK_PAGE_ACCESS_TOKEN",
-  "verifyToken": "YOUR_VERIFY_TOKEN",
-  "geminiKey": "YOUR_GEMINI_API_KEY",
+  "pageToken": "EAANWqh0HAoMBPxtDQjRQBquwqktNOb3fy7TqMVPSsuQDTYPHJr3Kn6TgRy5VaOGbv2rQr54iWRulHznmzZCy3muovZAzOBqpxD32ZBKSxHHysuzgvOpXht3p2s1fAYzZCU62x9RX2Kn04pzEumKgQZBvstwv4MCh8pKOZCKLFgCCihkYj7CiygTeCZAJZAnyKAjVJs3UgyOy6QZDZD",
+  "verifyToken": "key",
+  "geminiKey": "AIzaSyB0O4wku3vO6q4zaEfvkBrXrvUmMriulhw",
   "adminCode": "dan122012"
 }
